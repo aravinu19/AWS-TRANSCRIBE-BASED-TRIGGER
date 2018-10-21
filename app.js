@@ -54,7 +54,10 @@ var transcriber = function(app){
         res.send(err);
       }
       else{
-        console.log(data.Body.toJSON());
+
+        var data_from_s3 = data.Body.toString();
+
+        console.log(JSON.parse(data_from_s3).results);
         res.json(JSON.parse(data.Body.toString()));
       }
 
