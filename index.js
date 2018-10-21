@@ -16,5 +16,5 @@ app.use(function(req, res, next) {
 transcriber(app);
 
 var server = app.listen(app.get('port'), () => {
-  console.log("Url Shortening Server is Up and Running on ", server.address().port);
+  console.log("Transcribe API Server is Up and Running on ", server.address().port);
 });
