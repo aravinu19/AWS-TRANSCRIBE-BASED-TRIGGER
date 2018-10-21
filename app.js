@@ -1,5 +1,8 @@
 const aws = require('aws-sdk');
+const sql_handler = require('./sql_handler');
+
 aws.config.update({region:'us-east-1'});
+
 var trans = new aws.TranscribeService({apiVersion: '2017-10-26'});
 var s3 = new aws.S3();
 
@@ -58,6 +61,11 @@ var transcriber = function(app){
         var data_from_s3 = data.Body.toString();
         data_from_s3 = JSON.parse(data_from_s3).results;
         console.log(data_from_s3.transcripts[0].transcript);
+        
+        sql_handler.send_data_to_db(data_from_s3.transcripts[0].transcript, file_name.split('.json')[0], (recordset) => {
+          console.log(recordset);
+        });
+        
         res.json(data_from_s3.transcripts[0].transcript);
       }
 
