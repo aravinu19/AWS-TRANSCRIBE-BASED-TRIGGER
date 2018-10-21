@@ -37,7 +37,7 @@ var transcriber = function(app){
 
 	});
 
-	app.get("/json", (req, res) => {
+	app.post("/json", (req, res) => {
 
     var bucket_name = req.body.bucket;
     var file_name = req.body.name;
