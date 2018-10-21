@@ -55,7 +55,7 @@ var transcriber = function(app){
       }
       else{
         console.log(data.Body.toString());
-        res.json(data.Body.toString());
+        res.json(JSON.parse(data.Body.toString()));
       }
 
     })
