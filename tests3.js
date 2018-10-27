@@ -6,7 +6,7 @@ var paras = {
     Bucket: "cloudvoicepath"
 }
 
-var data_json = "{";
+var data_json = "[";
 
 var files_in_a_day = new Array(30).fill(0);
 
@@ -40,7 +40,7 @@ s3.listObjects(paras, (err, data) => {
             
         }
 
-        data_json += "}";
+        data_json += "]";
 
         console.log(data_json);
 
