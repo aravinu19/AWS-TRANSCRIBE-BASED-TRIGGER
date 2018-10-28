@@ -1,5 +1,6 @@
 const aws = require('aws-sdk');
 const sql_handler = require('./sql_handler');
+const object_history_generator = require('./s3_object_history_generator');
 
 aws.config.update({region:'us-east-1'});
 
@@ -70,6 +71,28 @@ var transcriber = function(app){
       }
 
     })
+
+  });
+
+  app.post("/getObjectHistory", (req, res) => {
+
+    var month = req.body.month;
+    var start_date = req.body.start_date;
+    var end_date = req.body.end_date;
+
+    if (month != null && start_date != null && end_date != null) {
+      
+      object_history_generator(month, start_date, end_date, (data_json) => {
+
+        res.send(data_json);
+
+      });
+
+    }else{
+
+      res.send('failed');
+
+    }
 
   });
 

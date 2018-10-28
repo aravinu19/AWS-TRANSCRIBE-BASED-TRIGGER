@@ -20,7 +20,7 @@ s3.listObjects(paras, (err, data) => {
 
         list.forEach(element => {
             if(element.Key.split(".")[1] == "mp3" && element.Key.split(".")[2] != "json"){
-                console.log(element.Key + "     " + element.LastModified.toString().split(" "));
+                console.log(element.Key + "     " + element.LastModified.toString().split(" ") + " MONTH : " + element.LastModified.getMonth());
                 count++;
 
                 files_in_a_day[element.LastModified.getDate()]++;// = files_in_a_day[element.LastModified.toString().split(" ")[2]] + 1;
