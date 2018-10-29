@@ -19,7 +19,7 @@ var transcriber = function(app){
       MediaFileUri: 'https://s3.amazonaws.com/cloudvoicebucket/' + name,
     },
     MediaFormat: 'mp3', /* required */
-    TranscriptionJobName: 'Trigger_' + name, /* required */
+    TranscriptionJobName: '' + name, /* required */
     
     OutputBucketName: 'cloudvoicebucket',
     Settings: {
