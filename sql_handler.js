@@ -18,9 +18,11 @@ var send_data_to_db = function(voice_data, voice_file_name, callback){
         request.query(`INSERT INTO speechoutput(filename, filedata) VALUES(${voice_file_name.toString()}, ${voice_data})`, (errs, recordset)=>{
             if(err) console.log(errs);
     
+            sql.close();
+            
+            console.log(recordset);
             callback(recordset);
 
-            console.log(recordset);
         });
     
     });
