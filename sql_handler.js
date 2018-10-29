@@ -16,7 +16,7 @@ var send_data_to_db = function(voice_data, voice_file_name, callback){
         var request = new sql.Request();
     
         request.query(`INSERT INTO speechoutput(filename,filedata) VALUES('${voice_file_name.toString()}','${voice_data}')`, (errs, recordset)=>{
-            if(err) console.log(errs);
+            if(errs) console.log(errs);
     
             sql.close();
             
