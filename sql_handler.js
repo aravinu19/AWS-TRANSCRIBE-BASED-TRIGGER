@@ -3,8 +3,8 @@ const sql = require('mssql');
 var config = {
     user: 'sasidharan',
     password: 'Tcs#1234',
-    server: 'mydbinstance.cckoc9nxvpm5.us-east-1.rds.amazonaws.com',
-    database: 'mp3_to_text'
+    server: 'transcribeapi.colsfl0djwbl.us-east-1.rds.amazonaws.com',
+    database: 'transcribeoutput'
 };
 
 var send_data_to_db = function(voice_data, voice_file_name, callback){
@@ -15,7 +15,7 @@ var send_data_to_db = function(voice_data, voice_file_name, callback){
     
         var request = new sql.Request();
     
-        request.query(`INSERT INTO mp3_data(filename, filedata) VALUES(${voice_file_name.toString()}, ${voice_data})`, (errs, recordset)=>{
+        request.query(`INSERT INTO speechoutput(filename, filedata) VALUES(${voice_file_name.toString()}, ${voice_data})`, (errs, recordset)=>{
             if(err) console.log(errs);
     
             callback(recordset);

@@ -16,12 +16,12 @@ var transcriber = function(app){
 		var params = {
     LanguageCode: 'en-US', /* required */
     Media: { /* required */
-      MediaFileUri: 'https://s3.amazonaws.com/cloudvoicepath/' + name,
+      MediaFileUri: 'https://s3.amazonaws.com/cloudvoicebucket/' + name,
     },
     MediaFormat: 'mp3', /* required */
     TranscriptionJobName: 'Trigger_' + name, /* required */
     
-    OutputBucketName: 'cloudvoicepath',
+    OutputBucketName: 'cloudvoicebucket',
     Settings: {
       ChannelIdentification: false,
       ShowSpeakerLabels: false

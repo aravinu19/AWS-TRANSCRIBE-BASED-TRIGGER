@@ -3,7 +3,7 @@ aws.config.update({region:'us-east-1'});
 var s3 = new aws.S3();
 
 var paras = {
-    Bucket: "cloudvoicepath"
+    Bucket: "cloudvoicebucket"
 }
 
 var data_json = "[";
