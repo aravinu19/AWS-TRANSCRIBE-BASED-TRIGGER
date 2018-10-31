@@ -21,7 +21,7 @@ var transcriber = function(app){
     MediaFormat: 'mp3', /* required */
     TranscriptionJobName: '' + name, /* required */
     
-    OutputBucketName: 'cloudvoicebucket',
+    OutputBucketName: 'cloudvoicejson',
     Settings: {
       ChannelIdentification: false,
       ShowSpeakerLabels: false
