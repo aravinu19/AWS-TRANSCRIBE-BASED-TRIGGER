@@ -96,6 +96,20 @@ var transcriber = function(app){
 
   });
 
+  app.post("/query", (req, res) => {
+
+    var keyword = req.body.keyword;
+
+    if(keyword){
+      sql_handler.query_keyword_in_db(keyword.toString(), (data) => {
+        res.send(data.recordset);
+      })
+    }else{
+      res.send("improper request");
+    }
+
+  });
+
 };
 
 

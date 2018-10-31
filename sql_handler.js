@@ -30,4 +30,29 @@ var send_data_to_db = function(voice_data, voice_file_name, callback){
 
 };
 
+var query_keyword_in_db = function(keyword, callback){
+
+    sql.connect(config, (err) => {
+
+        if(err) console.log(err);
+
+        var request = new sql.Request();
+
+        request.query(`SELECT filename FROM speechoutput WHERE filedata LIKE '%${keyword}%'`, (errs, recordset) => {
+
+            if (errs) {
+                console.log(errs);
+            }
+
+            console.log(recordset);
+
+            callback(recordset);
+
+        });
+
+    });
+
+};
+
 module.exports.send_data_to_db = send_data_to_db;
+module.exports.query_keyword_in_db = query_keyword_in_db;
