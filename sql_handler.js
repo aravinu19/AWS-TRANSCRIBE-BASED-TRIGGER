@@ -46,6 +46,8 @@ var query_keyword_in_db = function(keyword, callback){
 
             console.log(recordset);
 
+            sql.close();
+
             callback(recordset);
 
         });
