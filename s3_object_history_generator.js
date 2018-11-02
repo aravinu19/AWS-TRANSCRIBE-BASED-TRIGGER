@@ -6,11 +6,11 @@ var params = {
     Bucket: "cloudvoicebucket"
 };
 
-var data_json = "[";
-
-var files_in_days = new Array(31).fill(0);
-
 var object_history_generator = function(required_month, start_date, end_date, callback){
+
+    var data_json = "[";
+
+    var files_in_days = new Array(31).fill(0);
 
     s3.listObjects(params, (err, data) => {
 
