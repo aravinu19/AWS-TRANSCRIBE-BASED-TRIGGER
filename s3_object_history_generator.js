@@ -12,7 +12,7 @@ var object_history_generator = function(required_month, start_date, end_date, ca
 
     var params = {
         Bucket: "connect-4b82db31f184",
-        prefix: "connect/ContactCenterTechnologyCOE/CallRecordings/" + "2018/" + "11" + "/" + start_date + "/"
+        prefix: "connect/ContactCenterTechnologyCOE/CallRecordings/" + "2018/" + "11" + "/" + start_date.toString() + "/"
     };
 
     var data_json = "[";
