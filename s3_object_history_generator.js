@@ -3,10 +3,16 @@ aws.config.update({region:'us-east-1'});
 var s3 = new aws.S3();
 
 var params = {
-    Bucket: "cloudvoicebucket"
+    Bucket: "connect-4b82db31f184",
+    prefix: "connect/ContactCenterTechnologyCOE/CallRecordings/"
 };
 
 var object_history_generator = function(required_month, start_date, end_date, callback){
+
+    var params = {
+        Bucket: "connect-4b82db31f184",
+        prefix: "connect/ContactCenterTechnologyCOE/CallRecordings/" + "2018" + start_date
+    };
 
     var data_json = "[";
 
