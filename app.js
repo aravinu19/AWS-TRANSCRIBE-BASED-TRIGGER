@@ -110,6 +110,17 @@ var transcriber = function(app){
 
   });
 
+  app.post("/ping", (req, res) => {
+    var info_file = req.body.name;
+
+    if(info_file){
+      res.send(`Pinged with Data : ${info_file}`);
+    }else{
+      res.send('Improper Request');
+    }
+
+  });
+
 };
 
 
