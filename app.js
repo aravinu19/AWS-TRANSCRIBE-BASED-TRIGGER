@@ -114,8 +114,10 @@ var transcriber = function(app){
     var info_file = req.body.name;
 
     if(info_file){
+      console.log(`Pinged with data : ${info_file}`);
       res.send(`Pinged with Data : ${info_file}`);
     }else{
+      console.log("Improper Request");
       res.send('Improper Request');
     }
 
